@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Models\Auth\User;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
@@ -25,7 +24,7 @@ class UserController extends Controller
      */
     public function profile()
     {
-        return response()->json(['user' => Auth::user()], 200);
+        return response()->json(['user' => auth()->user()], 200);
     }
 
     /**
@@ -51,7 +50,7 @@ class UserController extends Controller
             return response()->json(['user' => $user], 200);
         } catch (\Exception $e) {
 
-            return response()->json(['message' => 'user not found!'], 404);
+            return response()->json(['message' => 'Usuario no encontrado.'], 404);
         }
     }
 }

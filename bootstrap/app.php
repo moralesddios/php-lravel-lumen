@@ -120,5 +120,4 @@ $app->router->group([
     require __DIR__.'/../routes/api.php';
 });
 
-
 return $app;

@@ -1,8 +1,8 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -16,8 +16,10 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'Liber Salus',
             'email' => 'admin@libersalus.com',
-            'password' => Hash::make('secret'),
-            'is_active' => true
+            'password' => app('hash')->make('secret'),
+            'is_active' => true,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }
